@@ -1,14 +1,28 @@
-# Welcome to your CDK TypeScript project
+# CDK + AppSync + Lambda + Cognito + S3 + RDS + Graphql + Prisma
 
-This is a blank project for TypeScript development with CDK.
+## installation
+- install aws-cli
+  - run aws configure (access_key, secret_key)
+- yarn 3.2.0
 
-The `cdk.json` file tells the CDK Toolkit how to execute your app.
+## prepare (first time only)
+- cdk bootstrap
+- add NO_REPLY_EMAIL as an identity in SES
+- create EC2_KEY_PAIR on AWS Console
+- yarn install
 
-## Useful commands
+## create new api:
+- yarn makeApi ${typeName}:${fieldName}
+- define API in graphql folder
+- run yarn gqlgen
+- write your code in ${typeName}/${fieldName}/index.ts
 
-* `npm run build`   compile typescript to js
-* `npm run watch`   watch for changes and compile
-* `npm run test`    perform the jest unit tests
-* `cdk deploy`      deploy this stack to your default AWS account/region
-* `cdk diff`        compare deployed stack with current state
-* `cdk synth`       emits the synthesized CloudFormation template
+## create/update new table in database
+- update model in prisma/schema.prisma
+- ssh to RDS server through EC2 and map RDS to your localhost (AND KEEP IT ALIVE)
+  - command: ssh -i **{EC2-KEY-PEM}** -L **{LOCAL-PORT}**:**{RDS-HOST}**:**{RDS-PORT}** ec2-user@**{EC2-PUBLIC-IP}** -v
+- yarn prisma db push 
+- yarn prisma generate
+
+## deployment:
+- yarn deploy
