@@ -30,11 +30,11 @@
     "aws-sdk": "2.1102.0",
     "axios": "0.26.1",
     "constructs": "10.0.114",
-    "fs-extra": "^10.1.0",
+    "fs-extra": "10.1.0",
     "moment": "2.29.2",
     "node-fetch": "3.2.4",
     "nodemailer": "6.7.3",
-    "path": "^0.12.7",
+    "path": "0.12.7",
     "uuid": "8.3.2"
   },
   "devDependencies": {
