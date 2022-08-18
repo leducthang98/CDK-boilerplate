@@ -10,11 +10,10 @@
     "build": "tsc",
     "watch": "tsc -w",
     "cdk": "cdk",
-    "makeApi":"npx ts-node script/generate-api-folder.ts",
+    "makeApi": "npx ts-node script/generate-api-folder.ts",
     "gqlgen": "rm -f ./graphql/index.graphql && graphql-schema-utilities -s './graphql/*.graphql' -o './graphql/index.graphql' -d && graphql-codegen",
     "deploy": "npx cdk deploy --all --require-approval never",
     "destroy": "npx cdk destroy --all --force"
-
   },
   "dependencies": {
     "@aws-cdk/aws-appsync-alpha": "2.20.0-alpha.0",
@@ -59,5 +58,6 @@
     "tslint": "6.1.3",
     "tslint-config-prettier": "1.18.0",
     "typescript": "4.5.4"
-  }
+  },
+  "packageManager": "yarn@3.2.2"
 }
